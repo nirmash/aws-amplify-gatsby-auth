@@ -34,7 +34,7 @@ class Todo extends React.Component{
             task: this.state.newtask,
             id: Date.now() 
         };
-        this.state.items.concat(item);
+        this.state.items.push(item);
     }
     render(){
         const user = getCurrentUser()
