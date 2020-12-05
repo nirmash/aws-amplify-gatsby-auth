@@ -14,10 +14,10 @@ const App = () => (
     <Router>
       <PrivateRoute path="/app/home" component={Home} />
       <PrivateRoute path="/app/profile" component={Details} />
-      <PrivateRoute path="/app/todo" component={ToDo} />
+      <PrivateRoute path="/app/todo" component={Todo} />
       <Login path="/app/login" />
       <SignUp path="/app/signup" />
-      <ToDo path="app/todo" />
+      <ToDo path="/app/todo" />
     </Router>
   </Layout>
 )
