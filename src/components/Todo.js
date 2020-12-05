@@ -60,7 +60,9 @@ class Todo extends React.Component{
         this.state.user = user;
         return(<div>
             <p>Hello: <label>{this.state.user.username}</label></p>
-            <ul id="lst"></ul>
+            <ul id="lst">
+                {this.renderItems()}
+            </ul>
             <div style={styles.formContainer}>
                 <input
                     onChange={this.handleUpdate}
