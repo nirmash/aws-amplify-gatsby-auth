@@ -40,11 +40,11 @@ class Todo extends React.Component{
         ReactDOM.render(this.renderItems(), document.getElementById('lst'));
     }
     renderItems = async() => {
-        <div>
-        {this.state.items.map((item, id) => (
-            <p><Item key={id} item={item.task} /></p>
-        ))}
-        </div>
+        const listItems = this.state.items.map((id, task) => (
+            <li key ={id}>
+                {task}
+            </li>
+        ));
     }
     render(){
         const user = getCurrentUser()
