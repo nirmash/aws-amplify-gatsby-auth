@@ -8,7 +8,7 @@ return(<div>
   <h1>Home</h1>
 	<p>Hello {user.username}</p>
 	<p>You are now logged in! <Link to="/app/profile">View profile</Link></p>
-	<p>Todo list <Link to="">Todo List</Link></p>
+	<p>Todo list <Link to="/app/todo">Todo List</Link></p>
 	</div>)
 }
 
