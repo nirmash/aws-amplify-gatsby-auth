@@ -33,9 +33,7 @@ class Todo extends React.Component{
           }        
     }
     processResults = async(resObj) => {
-        resObj.splice(resObj.length-1,1);
-        this.state.items = [...resObj];
-        console.log(this.state.items);
+        console.log("resObj: " + resObj);
     }
     addTask = () => {
         const item = {
