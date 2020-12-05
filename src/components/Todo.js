@@ -17,13 +17,14 @@ class Todo extends React.Component{
     sendCommand = async() => {
         const { redisCommand} = this.state
         try {
-            this.state.redisResult = await send_command(redisCommand);
-            console.log(this.state.redisResult);
-
+            this.state.redisResult = await send_command(redisCommand, this.processResults);
           } catch (err) {
             this.setState({ error: err })
             console.log('error...: ', err)
           }        
+    }
+    processResults = async(resObj) => {
+        console.log(resObj);
     }
     render(){
         const user = getCurrentUser()

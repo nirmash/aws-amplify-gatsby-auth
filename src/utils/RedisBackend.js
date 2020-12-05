@@ -1,5 +1,5 @@
 
-export const send_command = (command)=> {
+export const send_command = (command, processResults)=> {
     const cmd = make_graphQL_command(command);
     const request = new XMLHttpRequest();
     const base_url="https://pu65bkndtvahlfy5nvhs5vzuhq.appsync-api.us-west-2.amazonaws.com/graphql";
@@ -11,8 +11,7 @@ export const send_command = (command)=> {
 
     request.onreadystatechange = function() {
         if (this.readyState == 4) {
-            console.log(JSON.parse(this.responseText).data.getRedis);
-            return JSON.parse(this.responseText).data.getRedis;
+            processResults(JSON.parse(this.responseText).data.getRedis);
         }
     };
 }
