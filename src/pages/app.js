@@ -16,7 +16,7 @@ const App = () => (
       <PrivateRoute path="/app/todo" component={Todo} />
       <Login path="/app/login" />
       <SignUp path="/app/signup" />
-      <ToDo path="/app/todo" />
+      <Todo path="/app/todo" />
     </Router>
   </Layout>
 )
