@@ -32,9 +32,7 @@ class Todo extends React.Component{
             console.log('error...: ', err)
           }        
     }
-    processResults = async(resStr) => {
-        console.log(resStr);
-        var resObj = JSON.parse(resStr);
+    processResults = async(resObj) => {
         resObj.splice(resObj.length-1,1);
         this.state.items = [...resObj];
         console.log(this.state.items);
