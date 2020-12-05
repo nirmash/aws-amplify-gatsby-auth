@@ -48,7 +48,6 @@ class Todo extends React.Component{
     render(){
         const user = getCurrentUser()
         this.state.user = user;
-        ReactDOM.render(this.renderItems(), document.getElementById('lst'));
         return(<div>
             <div id="lst"></div>
             <div style={styles.formContainer}>
