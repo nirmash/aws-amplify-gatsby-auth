@@ -6,8 +6,7 @@ import Home from "../components/Home"
 import Login from "../components/Login"
 import SignUp from "../components/SignUp"
 import PrivateRoute from "../components/PrivateRoute"
-import ToDo from "../components/Todo"
-
+import Todo from "../components/Todo"
 
 const App = () => (
   <Layout>
