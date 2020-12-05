@@ -30,7 +30,7 @@ class Todo extends React.Component{
         this.state.redisResult = resObj;
         console.log(this.state.redisResult);
     }
-    addTask = async() => {
+    addTask = () => {
         const item = {
             user: this.state.user.username,
             task: this.state.newtask,
@@ -39,7 +39,7 @@ class Todo extends React.Component{
         this.state.items.push(item);
         ReactDOM.render(this.renderItems(), document.getElementById('lst'));
     }
-    renderItems = async() => {
+    renderItems = () => {
         const listItems = this.state.items.map((the_task, id) => (
             <li key ={id}>
                 {the_task.task}
