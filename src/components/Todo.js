@@ -6,7 +6,7 @@ class Todo extends React.Component{
 
     state = {
         redisCommand: ``,
-        redisResult: ``  
+        redisResult: []  
     }
 
     handleUpdate = (event) => {
@@ -24,7 +24,8 @@ class Todo extends React.Component{
           }        
     }
     processResults = async(resObj) => {
-        console.log(resObj);
+        this.state.redisResult = resObj;
+        console.log(this.state.redisResult);
     }
     render(){
         const user = getCurrentUser()
