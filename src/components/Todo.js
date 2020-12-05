@@ -1,6 +1,7 @@
 import React from 'react'
 import { getCurrentUser } from '../utils/auth'
 import { send_command } from '../utils/RedisBackend'
+import { render } from 'react-dom'
 
 class Todo extends React.Component{
 
@@ -35,16 +36,21 @@ class Todo extends React.Component{
             id: Date.now() 
         };
         this.state.items.push(item);
+        ReactDOM.render(this.renderItems(), document.getElementById('lst'));
+    }
+    renderItems = async() => {
+        <div>
+        {this.state.items.map((item, id) => (
+            <p><Item key={id} item={item.task} /></p>
+        ))}
+        </div>
     }
     render(){
         const user = getCurrentUser()
         this.state.user = user;
+        ReactDOM.render(this.renderItems(), document.getElementById('lst'));
         return(<div>
-            <div>
-            {this.state.items.map((item, id) => (
-                <Item key={id} item={item.task} />
-            ))}
-            </div>            
+            <div id="lst"></div>
             <div style={styles.formContainer}>
                 <input
                     onChange={this.handleUpdate}
