@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { getCurrentUser } from '../utils/auth'
 import { send_command } from '../utils/RedisBackend'
+import { getCurrentUser } from '../utils/auth'
 
 
 class Todo extends React.Component{
@@ -10,6 +11,14 @@ class Todo extends React.Component{
         user: ``,
         newtask: ``,
         items: []  
+    }
+
+    constructor(props){
+        super(props);
+        this.state.user = getCurrentUser();
+        const cmdString = "SMEMBERS Tasks_" + this.state.user.username;
+        this.sendCommand(cmdString);
+        ReactDOM.render(this.renderItems(), document.getElementById('lst'));
     }
 
     handleUpdate = (event) => {
@@ -26,7 +35,9 @@ class Todo extends React.Component{
           }        
     }
     processResults = async(resObj) => {
-        this.state.redisResult = resObj;
+        tempObj = [...resObj];
+        tempObj.splice(tempObj.length-1,1);
+        this.state.items = [...tempObj];
         console.log(this.state.redisResult);
     }
     addTask = () => {
