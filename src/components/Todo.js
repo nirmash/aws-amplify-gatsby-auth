@@ -29,7 +29,7 @@ class Todo extends React.Component{
         console.log(this.state.redisResult);
     }
     addTask = async() => {
-        item = {
+        const item = {
             user: this.state.user.username,
             task: this.state.newtask,
             id: Date.now() 
