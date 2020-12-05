@@ -36,7 +36,7 @@ class Todo extends React.Component{
             id: Date.now() 
         };
         this.state.items.push(item);
-        cmdString = "SADD Tasks_" + item.username + " " + JSON.stringify(item);
+        const cmdString = "SADD Tasks_" + item.username + " " + JSON.stringify(item);
         document.getElementById(taskinput).innerText="";
         ReactDOM.render(this.renderItems(), document.getElementById('lst'));
     }
