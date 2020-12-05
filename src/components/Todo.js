@@ -45,12 +45,13 @@ class Todo extends React.Component{
                 {the_task.task}
             </li>
         ));
+        return listItems;
     }
     render(){
         const user = getCurrentUser()
         this.state.user = user;
         return(<div>
-            <div id="lst"></div>
+            <ul id="lst"></ul>
             <div style={styles.formContainer}>
                 <input
                     onChange={this.handleUpdate}
