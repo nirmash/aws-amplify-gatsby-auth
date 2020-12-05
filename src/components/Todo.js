@@ -26,14 +26,14 @@ class Todo extends React.Component{
     }
     sendCommand = async(cmd) => {
         try {
-            this.state.redisResult = await send_command(cmd, this.processResults);
+            this.state.items = send_command(cmd, this.processResults);
           } catch (err) {
             this.setState({ error: err })
             console.log('error...: ', err)
           }        
     }
-    processResults = async(resObj) => {
-        tempObj = [...resObj];
+    processResults = async() => {
+        var tempObj = [...resObj];
         tempObj.splice(tempObj.length-1,1);
         this.state.items = [...tempObj];
         console.log(this.state.redisResult);
