@@ -16,7 +16,7 @@ class Todo extends React.Component{
         this.state.user = getCurrentUser();
         const cmdString = "SMEMBERS Tasks_" + this.state.user.username;
         this.sendCommand(cmdString);
-        ReactDOM.render(this.renderItems(), document.getElementById('lst'));
+//        ReactDOM.render(this.renderItems(), document.getElementById('lst'));
     }
 
     handleUpdate = (event) => {
@@ -33,6 +33,7 @@ class Todo extends React.Component{
           }        
     }
     processResults = async(resStr) => {
+        console.log(resStr);
         var resObj = JSON.parse(resStr);
         resObj.splice(resObj.length-1,1);
         this.state.items = [...resObj];
