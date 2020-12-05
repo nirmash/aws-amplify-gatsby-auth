@@ -11,7 +11,9 @@ export const send_command = (command, processResults)=> {
 
     request.onreadystatechange = function() {
         if (this.readyState == 4) {
-            processResults(JSON.parse(JSON.parse(this.responseText).data.getRedis));
+            console.log(this.responseText);
+            console.log(JSON.parse(this.responseText).data.getRedis)
+            processResults(JSON.parse(this.responseText).data.getRedis);
         }
     };
 }
