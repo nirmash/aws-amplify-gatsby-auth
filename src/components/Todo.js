@@ -40,9 +40,9 @@ class Todo extends React.Component{
         ReactDOM.render(this.renderItems(), document.getElementById('lst'));
     }
     renderItems = async() => {
-        const listItems = this.state.items.map((id, task) => (
+        const listItems = this.state.items.map((the_task, id) => (
             <li key ={id}>
-                {task}
+                {the_task.task}
             </li>
         ));
     }
