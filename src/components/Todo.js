@@ -17,10 +17,9 @@ class Todo extends React.Component{
           [event.target.name]: event.target.value,
         })
     }
-    sendCommand = async() => {
-        const { redisCommand} = this.state
+    sendCommand = async(cmd) => {
         try {
-            this.state.redisResult = await send_command(redisCommand, this.processResults);
+            this.state.redisResult = await send_command(cmd, this.processResults);
           } catch (err) {
             this.setState({ error: err })
             console.log('error...: ', err)
@@ -37,6 +36,8 @@ class Todo extends React.Component{
             id: Date.now() 
         };
         this.state.items.push(item);
+        cmdString = "SADD Tasks_" + item.username + " " + JSON.stringify(item);
+        document.getElementById(taskinput).innerText="";
         ReactDOM.render(this.renderItems(), document.getElementById('lst'));
     }
     renderItems = () => {
@@ -57,6 +58,7 @@ class Todo extends React.Component{
                     onChange={this.handleUpdate}
                     placeholder='New Task'
                     name='newtask'
+                    id='taskinput'
                     style={styles.input}
                 /> 
             </div>            
