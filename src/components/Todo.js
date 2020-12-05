@@ -5,8 +5,9 @@ import { send_command } from '../utils/RedisBackend'
 class Todo extends React.Component{
 
     state = {
-        redisCommand: ``,
-        redisResult: []  
+        user: ``,
+        newtask: ``,
+        items: []  
     }
 
     handleUpdate = (event) => {
@@ -27,22 +28,33 @@ class Todo extends React.Component{
         this.state.redisResult = resObj;
         console.log(this.state.redisResult);
     }
+    addTask = async() => {
+        item = {
+            user: this.state.user.username,
+            task: this.state.newtask,
+            id: Date.now() 
+        };
+        this.state.items.concat(item);
+    }
     render(){
         const user = getCurrentUser()
+        this.state.user = user;
         return(<div>
-            <p>Hello {user.username}</p>
-            <p>Result: <label value={this.state.redisResult} /></p>
+            <div>
+            {this.state.items.map((item, id) => (
+                <Item key={id} item={item.task} />
+            ))}
+            </div>            
             <div style={styles.formContainer}>
                 <input
                     onChange={this.handleUpdate}
-                    placeholder='redisCommand'
-                    name='redisCommand'
-                    value={this.state.redisCommand}
+                    placeholder='New Task'
+                    name='newtask'
                     style={styles.input}
                 /> 
             </div>            
-            <div style={styles.button} onClick={this.sendCommand}>
-                    <span style={styles.buttonText}>Send Command</span>
+            <div style={styles.button} onClick={this.addTask}>
+                    <span style={styles.buttonText}>Add Task</span>
             </div>    
         </div>)
     }
