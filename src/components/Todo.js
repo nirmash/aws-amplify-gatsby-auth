@@ -15,9 +15,9 @@ class Todo extends React.Component{
         })
     }
     sendCommand = async() => {
-        const { redisCommand, redisResult } = this.state
+        const { redisCommand} = this.state
         try {
-            redisResult = await send_command(redisCommand)
+            this.state.redisResult = await send_command(redisCommand)
 
           } catch (err) {
             this.setState({ error: err })
