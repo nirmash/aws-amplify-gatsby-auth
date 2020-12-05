@@ -6,6 +6,7 @@ import Home from "../components/Home"
 import Login from "../components/Login"
 import SignUp from "../components/SignUp"
 import PrivateRoute from "../components/PrivateRoute"
+import ToDo from "../components/Todo"
 
 
 const App = () => (
@@ -13,8 +14,10 @@ const App = () => (
     <Router>
       <PrivateRoute path="/app/home" component={Home} />
       <PrivateRoute path="/app/profile" component={Details} />
+      <PrivateRoute path="/app/todo" component={ToDo} />
       <Login path="/app/login" />
       <SignUp path="/app/signup" />
+      <ToDo path="app/todo" />
     </Router>
   </Layout>
 )
