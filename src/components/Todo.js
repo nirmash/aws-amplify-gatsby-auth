@@ -1,8 +1,6 @@
 import React from 'react'
-import { Link } from 'gatsby'
 import { getCurrentUser } from '../utils/auth'
 import { send_command } from '../utils/RedisBackend'
-
 
 class Todo extends React.Component{
 
@@ -62,4 +60,4 @@ const styles = {
     }
   }
 
-export default ToDo 
+export default Todo 
