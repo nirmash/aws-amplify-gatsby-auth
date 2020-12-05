@@ -2,8 +2,6 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { getCurrentUser } from '../utils/auth'
 import { send_command } from '../utils/RedisBackend'
-import { getCurrentUser } from '../utils/auth'
-
 
 class Todo extends React.Component{
 
@@ -64,6 +62,7 @@ class Todo extends React.Component{
         const user = getCurrentUser()
         this.state.user = user;
         return(<div>
+            <p>Hello: <label>{this.state.user.username}</label></p>
             <ul id="lst"></ul>
             <div style={styles.formContainer}>
                 <input
