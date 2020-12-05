@@ -24,19 +24,19 @@ class Todo extends React.Component{
           [event.target.name]: event.target.value,
         })
     }
-    sendCommand = async(cmd) => {
+    sendCommand = (cmd) => {
         try {
-            this.state.items = send_command(cmd, this.processResults);
+            send_command(cmd, this.processResults);
           } catch (err) {
             this.setState({ error: err })
             console.log('error...: ', err)
           }        
     }
-    processResults = async() => {
-        var tempObj = [...resObj];
-        tempObj.splice(tempObj.length-1,1);
-        this.state.items = [...tempObj];
-        console.log(this.state.redisResult);
+    processResults = async(resStr) => {
+        var resObj = JSON.parse(resStr);
+        resObj.splice(resObj.length-1,1);
+        this.state.items = [...resObj];
+        console.log(this.state.items);
     }
     addTask = () => {
         const item = {
