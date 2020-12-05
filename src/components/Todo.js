@@ -1,7 +1,8 @@
 import React from 'react'
+import ReactDOM from 'react-dom'
 import { getCurrentUser } from '../utils/auth'
 import { send_command } from '../utils/RedisBackend'
-import { ReactDOM } from 'react-dom'
+
 
 class Todo extends React.Component{
 
