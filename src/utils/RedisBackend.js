@@ -12,7 +12,8 @@ export const send_command = (command, processResults)=> {
     request.onreadystatechange = function() {
         if (this.readyState == 4) {
             var arr = JSON.parse(this.responseText).data.getRedis;
-            var clean_arr = arr.slice(arr.length-1,1)
+            console.log(arr);
+            var clean_arr = arr.slice(0,arr.length-1);
             console.log(clean_arr);
             processResults(clean_arr);
         }
