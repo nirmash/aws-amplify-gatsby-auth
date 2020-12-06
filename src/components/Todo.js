@@ -32,7 +32,7 @@ class Todo extends React.Component{
             console.log('error...: ', err)
           }        
     }
-    processResults = async(resObj) => {
+    processResults = (resObj) => {
         console.log(resObj);
         console.log("arr length: " + this.state.items.length);
         if (this.state.items.length == 0){
