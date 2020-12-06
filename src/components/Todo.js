@@ -33,7 +33,7 @@ class Todo extends React.Component{
           }        
     }
     processResults = async(resObj) => {
-        console.log("resObj: " + resObj);
+        console.log(resObj);
     }
     addTask = () => {
         const item = {
