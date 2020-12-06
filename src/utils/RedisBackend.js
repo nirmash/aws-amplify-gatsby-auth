@@ -13,7 +13,6 @@ export const send_command = (command, processResults)=> {
         if (this.readyState == 4) {
             var arr = JSON.parse(this.responseText).data.getRedis;
             var clean_arr = arr.slice(0,arr.length-1);
-            console.log(clean_arr);
             processResults(clean_arr);
         }
     };
