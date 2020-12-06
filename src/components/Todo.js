@@ -74,7 +74,6 @@ class Todo extends React.Component{
             </ul>
             <div style={styles.formContainer}>
                 <input
-                    onChange={this.handleUpdate}
                     placeholder='New Task'
                     name='newtask'
                     id='taskinput'
