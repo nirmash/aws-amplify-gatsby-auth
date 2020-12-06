@@ -47,7 +47,7 @@ class Todo extends React.Component{
     addTask = () => {
         const item = {
             user: this.state.user.username,
-            task: this.state.newtask,
+            task: document.getElementById('taskinput').value,
             id: Date.now() 
         };
         this.state.items.push(item);
