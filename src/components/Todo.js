@@ -57,7 +57,9 @@ class Todo extends React.Component{
         ReactDOM.render(this.renderItems(), document.getElementById('lst'));
     }
     renderItems = () => {
-        const listItems = this.state.items.map((the_task, id) => (
+        const listItems = this.state.items
+        .sort.sort((a, b) => a.id > b.id ? 1 : -1)
+        .map((the_task, id) => (
             <li key ={id}>
                 {the_task.task}
             </li>
