@@ -34,6 +34,10 @@ class Todo extends React.Component{
     }
     processResults = async(resObj) => {
         console.log(resObj);
+        console.log("arr length: " + this.state.items.length);
+        if (this.state.items.length == 0){
+            this.state.items=[...resObj];
+        }
     }
     addTask = () => {
         const item = {
