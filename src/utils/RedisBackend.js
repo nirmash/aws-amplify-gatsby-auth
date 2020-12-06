@@ -11,9 +11,10 @@ export const send_command = (command, processResults)=> {
 
     request.onreadystatechange = function() {
         if (this.readyState == 4) {
-            console.log(this.responseText);
-            console.log(JSON.parse(this.responseText).data.getRedis)
-            processResults(JSON.parse(this.responseText).data.getRedis);
+            var arr = JSON.parse(this.responseText).data.getRedis;
+            var clean_arr = arr.slice(clean_arr.length-1,1)
+            console.log(clean_arr);
+            processResults(clean_arr);
         }
     };
 }
