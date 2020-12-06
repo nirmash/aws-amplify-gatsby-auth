@@ -69,9 +69,7 @@ class Todo extends React.Component{
         this.state.user = user;
         return(<div>
             <p>Hello: <label>{this.state.user.username}</label></p>
-            <ul id="lst">
-                {this.renderItems()}
-            </ul>
+            <ul id="lst"></ul>
             <div style={styles.formContainer}>
                 <input
                     placeholder='New Task'
