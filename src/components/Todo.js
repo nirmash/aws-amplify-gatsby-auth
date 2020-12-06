@@ -36,7 +36,7 @@ class Todo extends React.Component{
         console.log(resObj);
         console.log("arr length: " + this.state.items.length);
         if (this.state.items.length == 0){
-            for (ii=0;ii<resObj.length;ii++){
+            for (var ii=0;ii<resObj.length;ii++){
                 this.state.items.push(JSON.parse(resObj[ii]));
             }
             console.log("arr length 2: " + this.state.items.length);
